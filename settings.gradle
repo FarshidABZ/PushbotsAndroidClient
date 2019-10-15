@@ -1,0 +1,2 @@
+include ':app', ':pushbotsclientmodule'
+rootProject.name='PushBotsTestSkill'
