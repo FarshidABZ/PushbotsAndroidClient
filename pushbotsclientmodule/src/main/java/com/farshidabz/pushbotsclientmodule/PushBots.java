@@ -62,7 +62,7 @@ public class PushBots {
         @LogLevel
         String mLogLevel;
 
-        NotificationClickListener mNotificationClikListener;
+        NotificationClickListener mNotificationClickListener;
 
         private Builder() {
         }
@@ -84,8 +84,8 @@ public class PushBots {
          *
          *
          * */
-        public Builder setNotificationClickListener(NotificationClickListener notificationClikListener) {
-            mNotificationClikListener = notificationClikListener;
+        public Builder setNotificationClickListener(NotificationClickListener mNotificationClickListener) {
+            mNotificationClickListener = mNotificationClickListener;
             return this;
         }
 

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "142618720625",
+    "firebase_url": "https://push-bot-skill-test.firebaseio.com",
+    "project_id": "push-bot-skill-test",
+    "storage_bucket": "push-bot-skill-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:142618720625:android:e0d19ca368c656e1665ed0",
+        "android_client_info": {
+          "package_name": "com.farshidabz.pushbotstestskill"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "142618720625-fntsh5l6a39qlpaoscugrthv8ee623g5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4_DaROtUQ9hR2-V5MJ6Iuo4zM-3rIxCQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "142618720625-fntsh5l6a39qlpaoscugrthv8ee623g5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
