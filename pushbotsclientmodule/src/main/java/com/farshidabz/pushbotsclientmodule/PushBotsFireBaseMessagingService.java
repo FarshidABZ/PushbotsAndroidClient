@@ -1,8 +1,6 @@
 package com.farshidabz.pushbotsclientmodule;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.farshidabz.pushbotsclientmodule.utils.LocalMessagingHelper;
 import com.farshidabz.pushbotsclientmodule.utils.ReactNativeJsonConverter;

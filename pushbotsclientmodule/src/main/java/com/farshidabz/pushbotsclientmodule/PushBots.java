@@ -55,6 +55,12 @@ public class PushBots {
         }
     }
 
+    public static void notificationClicked(Bundle bundle) {
+        if (mBuilder != null && mBuilder.mNotificationClickListener != null) {
+            mBuilder.mNotificationClickListener.onNotificationClicked(bundle);
+        }
+    }
+
     /**
      * Builder class to set PushBots variable.
      */
@@ -62,7 +68,7 @@ public class PushBots {
         @LogLevel
         String mLogLevel;
 
-        NotificationClickListener mNotificationClickListener;
+        NotificationClickListener mNotificationClickListener = null;
 
         private Builder() {
         }
@@ -81,17 +87,15 @@ public class PushBots {
 
         /**
          * setNotificationClickListener to handle notification click listener
-         *
-         *
-         * */
-        public Builder setNotificationClickListener(NotificationClickListener mNotificationClickListener) {
-            mNotificationClickListener = mNotificationClickListener;
+         */
+        public Builder setNotificationClickListener(NotificationClickListener notificationClickListener) {
+            mNotificationClickListener = notificationClickListener;
             return this;
         }
 
         /**
          * init PushBots
-         * */
+         */
         public void init() {
             PushBots.init(this);
         }
