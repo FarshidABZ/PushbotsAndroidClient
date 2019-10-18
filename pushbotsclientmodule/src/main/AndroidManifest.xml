@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.farshidabz.pushbotsclientmodule">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application>
         <receiver android:name=".PushBotsBroadcastHandler" />
     </application>

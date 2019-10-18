@@ -1,11 +1,8 @@
 package com.farshidabz.pushbotsclientmodule.service;
 
-import android.util.Log;
-
+import com.farshidabz.pushbotsclientmodule.data.remote.repository.FCMRepository;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
-
-import static android.content.ContentValues.TAG;
 
 /**
  * Created by Farshid since 15 Oct 2019
@@ -25,7 +22,6 @@ public class InstanceIdService extends FirebaseInstanceIdService {
     @Override
     public void onTokenRefresh() {
         String refreshedToken = FirebaseInstanceId.getInstance().getToken();
-        Log.d(TAG, "Refreshed token: " + refreshedToken);
-        // TODO: 2019-10-15 send id to server
+        FCMRepository.sendFCMTokenToServer(getApplicationContext(), refreshedToken);
     }
 }

@@ -12,10 +12,15 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [push_bots_app_id: "5d258e58b7941208c73fcfb7"]
+        }
+        debug {
+            manifestPlaceholders = [push_bots_app_id: "5d258e58b7941208c73fcfb7"]
         }
     }
 }

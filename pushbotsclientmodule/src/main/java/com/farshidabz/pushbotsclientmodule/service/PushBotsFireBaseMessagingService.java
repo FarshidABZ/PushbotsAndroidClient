@@ -1,4 +1,4 @@
-package com.farshidabz.pushbotsclientmodule;
+package com.farshidabz.pushbotsclientmodule.service;
 
 import android.os.Bundle;
 

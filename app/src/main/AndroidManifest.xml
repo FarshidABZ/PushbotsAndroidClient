@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning">
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:targetApi="m">
 
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -23,13 +25,25 @@
 
 
         <service
-            android:name="com.farshidabz.pushbotsclientmodule.PushBotsFireBaseMessagingService"
+            android:name="com.farshidabz.pushbotsclientmodule.service.PushBotsFireBaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        
+
+        <service
+            android:name="com.farshidabz.pushbotsclientmodule.service.InstanceIdService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.farshidabz.pushbotsclientmodule.AppId"
+            android:value="${push_bots_app_id}" />
+
     </application>
 
 </manifest>
