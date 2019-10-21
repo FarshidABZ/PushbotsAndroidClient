@@ -6,7 +6,12 @@ import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.modules.core.DeviceEventManagerModule;
+import com.farshidabz.pushbotsclientmodule.utils.ReactNativeJsonConverter;
 import com.google.firebase.iid.FirebaseInstanceId;
+
+import org.json.JSONObject;
 
 /**
  * Created by Farshid since 17 Oct 2019
@@ -32,11 +37,9 @@ public class PushBotsNativeModule extends ReactContextBaseJavaModule {
 
     /**
      * getFCMToken
-     *
+     * <p>
      * A method to return user FCM token with promise to JS code
-     *
-     * @param promise {@link Promise} to get FCM token in callback
-     * */
+     */
     @ReactMethod
     public void getFCMToken(Promise promise) {
         try {
@@ -45,5 +48,20 @@ public class PushBotsNativeModule extends ReactContextBaseJavaModule {
             e.printStackTrace();
             promise.reject(null, e.getMessage());
         }
+    }
+
+    @ReactMethod
+    public void setNotificationClickListener() {
+        PushBots.with(mReactContext).setNotificationClickListener(new NotificationClickListener() {
+            @Override
+            public void onNotificationClicked(Object result) {
+                sendJSEvent("notificationClicked", ReactNativeJsonConverter.toWritableMap((JSONObject) result));
+            }
+        });
+    }
+
+    private void sendJSEvent(String eventName, WritableMap params) {
+        mReactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+                .emit(eventName, params);
     }
 }

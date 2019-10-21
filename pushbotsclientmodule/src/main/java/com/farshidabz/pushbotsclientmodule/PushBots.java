@@ -2,8 +2,6 @@ package com.farshidabz.pushbotsclientmodule;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -20,13 +18,17 @@ public class PushBots {
     @SuppressLint("StaticFieldLeak")
     private static Context mContext;
 
-    private static Builder mBuilder;
+    private static Builder mBuilder = null;
 
     private static String TAG = "PushBots";
 
     public static Builder with(Context context) {
         mContext = context;
-        return new Builder();
+        if (mBuilder == null) {
+            return new Builder();
+        }
+
+        return mBuilder;
     }
 
     /**
@@ -40,16 +42,7 @@ public class PushBots {
         }
 
         try {
-            // read application id and sender id from application meta data.
-            ApplicationInfo applicationInfo = mContext
-                    .getPackageManager()
-                    .getApplicationInfo(mContext.getPackageName(), PackageManager.GET_META_DATA);
-
-            Bundle bundle = applicationInfo.metaData;
-            String sender_id = bundle.getString("push_bot_sender_id");
-
-            // todo set application id if necessary, initialize other things
-
+            //TODO initialize PushBots here if we want. it most useful on android not react native
         } catch (Exception e) {
             Log.e(TAG, Objects.requireNonNull(e.getMessage(), "something is wrong"));
         }
