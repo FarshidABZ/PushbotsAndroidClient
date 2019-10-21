@@ -9,7 +9,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
-        versionName "1.0"
+        versionName "1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
@@ -39,3 +39,30 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'push_bots_test'
+
+    publishedGroupId = 'com.farshidabz.pushbotsclientmodule'
+    libraryName = 'push_bots_test'
+    artifact = 'push_bots_test'
+
+    libraryDescription = 'This is PushBots skill test'
+
+    siteUrl = 'https://github.com/FarshidABZ/PushbotsSkillTest'
+    gitUrl = 'git@github.com:FarshidABZ/PushbotsSkillTest.git'
+
+    libraryVersion = '1'
+
+    developerId = 'farshidsigma'
+    developerName = 'Farshid Abazari'
+    developerEmail = 'farshid.abazari@sigmasoftwares.com'
+
+    licenseName = 'MIT'
+    licenseUrl = ''
+    allLicenses = ["MIT"]
+}
+
+apply from: 'install.gradle'
+apply from: 'bintray.gradle'
