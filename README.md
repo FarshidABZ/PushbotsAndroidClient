@@ -73,6 +73,7 @@ import below code to access to the native madule
     
       console.error(e);
       
-    }
+    } 
     
-  }`
+  }
+  `
