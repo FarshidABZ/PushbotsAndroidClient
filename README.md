@@ -62,10 +62,17 @@ import below code to access to the native madule
 #sample 
 
 `async function sendNotification() {
+
     try {
+    
       var token = await PushBotsExample.PushBotsNativeModule.getFCMToken();
+      
       console.log('>>>>>> token is: ' + token);
+      
     } catch (e) {
+    
       console.error(e);
+      
     }
+    
   }`
