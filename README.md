@@ -11,15 +11,15 @@
 
 3- put this code into module build.gradle:
 
-   `dependencies {
-      ...
-      implementation files('libs/pushbotsclientmodule.aar')
-      ...
+   `dependencies { 
+      ...      
+      implementation files('libs/pushbotsclientmodule.aar')      
+      ...      
     }`
     
 4- set your push bots appId in build.gradle:
 
-   `manifestPlaceholders = [push_bots_app_id: "5d258e58b7941208c73fcfb7"]`
+      `manifestPlaceholders = [push_bots_app_id: "5d258e58b7941208c73fcfb7"]`
    
    
 5- open you AndroidManifest.xml file and past the below code inside application tag:
@@ -50,30 +50,30 @@
 
 1- in your PushBotsFCMModule.js:
 
-` import {NativeEventEmitter, NativeModules} from 'react-native';
-  module.exports = NativeModules;`
+      ` import {NativeEventEmitter, NativeModules} from 'react-native';
+      
+        module.exports = NativeModules;`
   
 2- in your app.js:
 
 import below code to access to the native madule
 
-`import PushBotsExample from './PushBotsFCMModule';`
+      `import PushBotsExample from './PushBotsFCMModule';`
 
 #sample 
 
-`async function sendNotification() {
-
-    try {
+      `async function sendNotification() {
+ 
+         try {
     
-      var token = await PushBotsExample.PushBotsNativeModule.getFCMToken();
+            var token = await PushBotsExample.PushBotsNativeModule.getFCMToken();
       
-      console.log('>>>>>> token is: ' + token);
+            console.log('>>>>>> token is: ' + token);
       
-    } catch (e) {
+         } catch (e) {
     
-      console.error(e);
+            console.error(e);
       
-    } 
+         } 
     
-  }
-  `
+      }`
